@@ -1,0 +1,15 @@
+Directory patches:
+
+- v2016.2.5.patches : patches for Gluon v2016.2.5 to enable the 
+        generation of the 8 MByte and 16 MByte images for the
+        TP_Link TL WR841N/ND V11 router.
+
+  See also: 
+   https://forum.freifunk.net/t/flashspeicher-upgraden-exemplarisch-am-tp-link-tl-wr841v9/14792
+   https://www.youtube.com/watch?v=l6rw1zo4A2c
+
+  This patch works also for v2016.2.4 but only the last image
+  specified in targets/ar71xx-generic/profiles.mk is created.
+
+=================================================================
+
