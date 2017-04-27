@@ -11,5 +11,10 @@ Directory patches:
   This patch works also for v2016.2.4 but only the last image
   specified in targets/ar71xx-generic/profiles.mk is created.
 
+Directory scripts:
+
+- build_ffka.sh : wip, script to do all the work of building the
+       Gluon images, for domain ffka, with 8MB/16MB patches
+
 =================================================================
 
