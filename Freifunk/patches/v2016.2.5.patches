@@ -1,20 +1,18 @@
 diff --git a/targets/ar71xx-generic/profiles.mk b/targets/ar71xx-generic/profiles.mk
-index a0ee43a..dee354f 100644
+index a0ee43a..ec8c11f 100644
 --- a/targets/ar71xx-generic/profiles.mk
 +++ b/targets/ar71xx-generic/profiles.mk
-@@ -82,6 +82,16 @@ $(eval $(call GluonProfile,TLWR841_REGION,,TLWR841))
+@@ -82,6 +82,14 @@ $(eval $(call GluonProfile,TLWR841_REGION,,TLWR841))
  $(eval $(call GluonModel,TLWR841_REGION,tl-wr841n-v11,tp-link-tl-wr841n-nd-v11))
  $(eval $(call GluonProfileFactorySuffix,TLWR841_REGION,-squashfs-factory$(if $(GLUON_REGION),-$(GLUON_REGION)),.bin))
  
 +# TL-WR841N/ND 8MB v11
-+$(eval $(call GluonProfile,TLWR841_REGION,,TLWR8418MB))
-+$(eval $(call GluonModel,TLWR841_REGION,tl-wr841n-v11-8mb,tp-link-tl-wr841n-nd-v11-8mb))
-+$(eval $(call GluonProfileFactorySuffix,TLWR841_REGION,-squashfs-factory$(if $(GLUON_REGION),-$(GLUON_REGION)),.bin))
++$(eval $(call GluonProfile,TLWR8418MB))
++$(eval $(call GluonModel,TLWR8418MB,tl-wr841n-v11-8mb,tp-link-tl-wr841n-nd-v11-8mb))
 +
 +# TL-WR841N/ND 16MB v11
-+$(eval $(call GluonProfile,TLWR841_REGION,,TLWR84116MB))
-+$(eval $(call GluonModel,TLWR841_REGION,tl-wr841n-v11-16mb,tp-link-tl-wr841n-nd-v11-16mb))
-+$(eval $(call GluonProfileFactorySuffix,TLWR841_REGION,-squashfs-factory$(if $(GLUON_REGION),-$(GLUON_REGION)),.bin))
++$(eval $(call GluonProfile,TLWR84116MB))
++$(eval $(call GluonModel,TLWR84116MB,tl-wr841n-v11-16mb,tp-link-tl-wr841n-nd-v11-16mb))
 +
  # TL-WR842N/ND v1, v2
  $(eval $(call GluonProfile,TLWR842))
