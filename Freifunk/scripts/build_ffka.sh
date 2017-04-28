@@ -15,10 +15,11 @@
 ##########################################################################
 
 STARTDIR=`pwd -P`
-echo "StartDIR ist $STARTDIR"
+echo "STARTDIR is $STARTDIR"
 
+# working directory, with date/time specifier
 WORKINGDIR="FF-KA-$(date '+%Y%m%d-%H%M%S')"
-echo "Arbeitsverzeichnis ist " $WORKINGDIR
+echo "Working directory is $WORKINGDIR"
 mkdir $WORKINGDIR
 cd $WORKINGDIR
 
@@ -53,12 +54,12 @@ GLUON_GIT_RELEASE_DIR="gluon.$GLUON_GIT_RELEASE"
 SITE_RELEASE="0.3.3-stable.0"
 SITE_RELEASE_DIR="site.$SITE_RELEASE"
 
-# number of cores 
+# number of cores
 # (will speedup the things if you have and use multiple cores)
 #CORES=1
 CORES=$(lscpu|grep -e '^CPU(s):'|xargs|cut -d" " -f2)
 
-START_TIME=$(date date -Iminutes)
+START_TIME=$(date -Iminutes)
 
 # checkout (git clone) the gluon
 git clone https://github.com/freifunk-gluon/gluon.git $GLUON_GIT_RELEASE_DIR -b $GLUON_GIT_RELEASE
@@ -80,7 +81,9 @@ GLUON_RELEASE=$SITE_RELEASE-$(date '+%Y%m%d')
 
 # 1st build w/o the path, generates the tool chain -> long running time
 #
-make -j$CORES GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
+# some build instructions recommend, to use only one core here
+#make -j$CORES GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
+make GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
 
 # 2nd step is patching, names defined already above
 #PATCHFILE="vvv2016.2.5.patches"
@@ -103,6 +106,7 @@ fi
 STOP_TIME=$(date -Iminutes)
 
 echo "Done!"
+echo
 echo "Start: " $START_TIME
 echo "Stop:  " $STOP_TIME
 
