@@ -48,7 +48,7 @@ fi
 
 # define the releases we want to use
 #
-# the SITE_RELEASE msut be compatible with the GLUON_GIT_RELEASE!
+# the SITE_RELEASE must be compatible with the GLUON_GIT_RELEASE!
 GLUON_GIT_RELEASE="v2016.2.5"
 GLUON_GIT_RELEASE_DIR="gluon.$GLUON_GIT_RELEASE"
 SITE_RELEASE="0.3.3-stable.0"
@@ -110,13 +110,5 @@ echo
 echo "Start: " $START_TIME
 echo "Stop:  " $STOP_TIME
 
-##
-
-
-
-#
-# Uboot für das individuelle device mergen mit neuen Uboot
-# dd if=mtd0.bin of=mtd0_merged.bin
-# dd conv=notrunc if=u-boot_mod__tp-link_tl-wr841n_v11__20170413__git_master-7e7a2ab4.bin of=mtd0_merged.bin
-
+## eof
 

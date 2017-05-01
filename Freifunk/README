@@ -16,5 +16,13 @@ Directory scripts:
 - build_ffka.sh : wip, script to do all the work of building the
        Gluon images, for domain ffka, with 8MB/16MB patches
 
+- modify_uboot.sh . script which merges the saved /dev/mtd0 with
+       a new uBoot image and some further addition(s) into
+       a new image to be written into /dev/mtd0 then
+
+  See also:
+   https://github.com/pepe2k/u-boot_mod
+   http://projects.dymacz.pl/?dir=u-boot_mod
+
 =================================================================
 
