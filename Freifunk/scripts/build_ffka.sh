@@ -58,6 +58,10 @@ SITE_RELEASE_DIR="site.$SITE_RELEASE"
 # (will speedup the things if you have and use multiple cores)
 #CORES=1
 CORES=$(lscpu|grep -e '^CPU(s):'|xargs|cut -d" " -f2)
+# limit number of used cores ...
+if [ $CORES -gt 8 ]; then
+  CORES=8
+fi
 
 START_TIME=$(date -Iminutes)
 
@@ -79,7 +83,7 @@ GLUON_TARGET=ar71xx-generic
 # ... this is the naming scheme usually used in domain ffka
 GLUON_RELEASE=$SITE_RELEASE-$(date '+%Y%m%d')
 
-# 1st build w/o the path, generates the tool chain -> long running time
+# 1st build w/o the patch, generates the tool chain -> long running time
 #
 # some build instructions recommend, to use only one core here
 #make -j$CORES GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
