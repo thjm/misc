@@ -24,10 +24,10 @@ mkdir $WORKINGDIR
 cd $WORKINGDIR
 
 # test for existing patch file
-# + user decision to cintinue without
+# + user decision to continue without
 PATCHFILE="v2016.2.5.patches"
 PATCH_URL=$STARTDIR"/"$PATCHFILE
-echo "PATCHURL ist $PATCH_URL"
+echo "PATCHURL is $PATCH_URL"
 
 if [ -f $PATCH_URL ]; then
   # patch is available
