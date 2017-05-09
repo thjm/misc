@@ -18,14 +18,20 @@ Directory patches:
    https://github.com/freifunk-gluon/gluon/issues/1103
    https://github.com/freifunk-gluon/gluon/issues/1093
 
+- gluon-lede-2017.0.0.patches : patches to be used with
+   build_lede_ffnord.sh script
+
 Directory scripts:
 
 - build_ffka.sh : wip, script to do all the work of building the
        Gluon images, for domain ffka, with 8MB/16MB patches
 
-- modify_uboot.sh . script which merges the saved /dev/mtd0 with
+- modify_uboot.sh : script which merges the saved /dev/mtd0 with
        a new uBoot image and some further addition(s) into
        a new image to be written into /dev/mtd0 then
+
+- build_lede_ffnord.sh : script to build the latest Gluon images 
+       (only ar71xx-tiny model) with proper 8MB patches
 
   See also:
    https://github.com/pepe2k/u-boot_mod

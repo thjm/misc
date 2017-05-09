@@ -1,0 +1,90 @@
+diff --git a/targets/ar71xx-tiny b/targets/ar71xx-tiny
+index 5f82acd..6eb4786 100644
+--- a/targets/ar71xx-tiny
++++ b/targets/ar71xx-tiny
+@@ -41,11 +41,16 @@ device tp-link-tl-wr841n-nd-v5 tl-wr841-v5
+ device tp-link-tl-wr841n-nd-v7 tl-wr841-v7
+ device tp-link-tl-wr841n-nd-v8 tl-wr841-v8
+ device tp-link-tl-wr841n-nd-v9 tl-wr841-v9
++device tp-link-tl-wr841n-nd-v9-8m tl-wr841-v9-8m
+ device tp-link-tl-wr841n-nd-v10 tl-wr841-v10
+ device tp-link-tl-wr841n-nd-v11 tl-wr841-v11
+ factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
++device tp-link-tl-wr841n-nd-v11-8m tl-wr841-v11-8m
++factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
+ device tp-link-tl-wr841n-nd-v12 tl-wr841-v12
+ factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
++device tp-link-tl-wr841n-nd-v12-8m tl-wr841-v12-8m
++factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
+ 
+ device tp-link-tl-wr843n-nd-v1 tl-wr843nd-v1
+ 
+diff --git a/target/linux/ar71xx/base-files/lib/ar71xx.sh b/target/linux/ar71xx/base-files/lib/ar71xx.sh
+index b035535..433f90e 100755
+--- a/lede/target/linux/ar71xx/base-files/lib/ar71xx.sh
++++ b/lede/target/linux/ar71xx/base-files/lib/ar71xx.sh
+@@ -235,6 +235,12 @@ tplink_board_detect() {
+ 			hwver=' v1.5'
+ 		fi
+ 		;;
++        "084108"*)
++                model="TP-Link TL-WR841N/ND 8MB"
++                ;;
++        "084116"*)
++                model="TP-Link TL-WR841N/ND 16MB"
++                ;;
+ 	"084200"*)
+ 		model="TP-Link TL-WR842N/ND"
+ 		;;
+diff --git a/target/linux/ar71xx/image/tp-link.mk b/target/linux/ar71xx/image/tp-link.mk
+index 1c88f43..22e43b5 100644
+--- a/lede/target/linux/ar71xx/image/tp-link.mk
++++ b/lede/target/linux/ar71xx/image/tp-link.mk
+@@ -649,6 +649,15 @@ define Device/tl-wr841-v9
+     TPLINK_HWID := 0x08410009
+ endef
+ 
++define Device/tl-wr841-v9-8m
++    $(Device/tplink-8mlzma)
++    DEVICE_TITLE := TP-LINK TL-WR841N/ND v9 8 MByte
++    BOARDNAME := TL-WR841N-v9
++    DEVICE_PROFILE := TLWR8418M
++    TPLINK_HWID := 0x08410809
++endef
++TARGET_DEVICES += tl-wr841-v9-8m
++
+ define Device/tl-wr841-v10
+     $(Device/tplink-4mlzma)
+     DEVICE_TITLE := TP-LINK TL-WR841N/ND v10
+@@ -668,12 +677,31 @@ define Device/tl-wr841-v11
+    IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
+ endef
+ 
++define Device/tl-wr841-v11-8m
++   $(Device/tplink-8mlzma)
++   DEVICE_TITLE := TP-LINK TL-WR841N/ND v11 8 MByte
++   BOARDNAME := TL-WR841N-v11
++   DEVICE_PROFILE := TLWR8418M
++   TPLINK_HWID := 0x08410811
++   IMAGES += factory-us.bin factory-eu.bin
++   IMAGE/factory-us.bin := append-rootfs | mktplinkfw factory -C US
++   IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
++endef
++TARGET_DEVICES += tl-wr841-v11-8m
++
+ define Device/tl-wr841-v12
+   $(Device/tl-wr841-v11)
+   DEVICE_TITLE := TP-LINK TL-WR841N/ND v12
+   TPLINK_HWID := 0x08410012
+ endef
+ 
++define Device/tl-wr841-v12-8m
++  $(Device/tl-wr841-v11-8m)
++  DEVICE_TITLE := TP-LINK TL-WR841N/ND v12 8 MByte
++  TPLINK_HWID := 0x08410812
++endef
++TARGET_DEVICES += tl-wr841-v12-8m
++
+ define Device/tl-wr842n-v1
+     $(Device/tplink-8m)
+     DEVICE_TITLE := TP-LINK TL-WR842N/ND v1
