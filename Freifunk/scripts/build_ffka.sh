@@ -2,10 +2,20 @@
 #
 # build_ffka.sh
 #
-# script to
+# Script to
 # - retrieve software for gluon build of site ffka
 # - build gluon for site ffka including 8 and 16MB images
 #   for TP-Link WR841N/ND
+#
+# Credits:
+# - https://wiki.freifunk.net/Freifunk_Nord/Firmware_selbst_kompilieren
+# - https://github.com/ffka/site-ffka
+# - http://gluon.readthedocs.io/en/latest/user/getting_started.html
+# - https://forum.freifunk.net/t/flashspeicher-upgraden-exemplarisch-am-tp-link-tl-wr841v9/14792
+# - https://www.youtube.com/watch?v=l6rw1zo4A2c
+# - https://www.youtube.com/watch?v=KZ78s0VVc6Y, BitBastelei #162
+# - https://github.com/pepe2k/u-boot_mod
+# - noku67 for idea and initial script
 #
 ##########################################################################
 # To run the sript you must make sure that certain packages are installed.
