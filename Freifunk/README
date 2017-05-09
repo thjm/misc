@@ -8,8 +8,7 @@ Directory patches:
    https://forum.freifunk.net/t/flashspeicher-upgraden-exemplarisch-am-tp-link-tl-wr841v9/14792
    https://www.youtube.com/watch?v=l6rw1zo4A2c
 
-  This patch works also for v2016.2.4 but only the last image
-  specified in targets/ar71xx-generic/profiles.mk is created.
+  This patch works was also tested with v2016.2.4.
 
 - v2016.2.5+v12.patches : previous patch extended by those ones necessary for 
         TP_Link TL WR841N/ND  V12 routers
