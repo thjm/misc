@@ -67,8 +67,10 @@ SITE_RELEASE_DIR="site.$SITE_RELEASE"
 # number of cores
 # (will speedup the things if you have and use multiple cores)
 #CORES=1
-#CORES=$(lscpu|grep -e '^CPU(s):'|xargs|cut -d" " -f2)
-CORES=4
+CORES=$(lscpu|grep -e '^CPU(s):'|xargs|cut -d" " -f2)
+if [ $CORES -gt 8 ]; then
+  CORES=8
+fi
 
 START_TIME=$(date -Iminutes)
 
