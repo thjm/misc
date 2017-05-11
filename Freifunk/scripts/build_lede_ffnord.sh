@@ -18,6 +18,9 @@
 # - https://www.youtube.com/watch?v=l6rw1zo4A2c
 #
 
+# if set to 1, no build, only work on sources
+NO_BUILD=0
+
 STARTDIR=`pwd -P`
 echo "STARTDIR is $STARTDIR"
 
@@ -27,28 +30,47 @@ echo "Working directory is $WORKINGDIR"
 mkdir $WORKINGDIR
 cd $WORKINGDIR
 
-# test for existing patch file
+# Targets and patches
+GLUON_TARGETS=""
+# test for existing patch files
 # + user decision to continue without
-PATCHFILE="gluon-lede-2017.0.0.patches"
-PATCH_URL=$STARTDIR"/"$PATCHFILE
-echo "PATCHURL is $PATCH_URL"
+# + either the 8mb images are for the tiny or the generic model
+PATCHES="gluon-lede-2017.0.0.tl-wr841.patch"
+GLUON_TARGETS="$GLUON_TARGETS ar71xx-generic"
+PATCHES="$PATCHES gluon-lede-2017.0.0.ar7xxx-generic.patch"
+#GLUON_TARGETS="$GLUON_TARGETS ar71xx-tiny"
+#PATCHES="$PATCHES gluon-lede-2017.0.0.ar7xxx-tiny.patch"
 
-if [ -f $PATCH_URL ]; then
-  # patch is available
-  echo "Patchfile found... $PATCH_URL"
-  echo " and will be used later."
-else
-  echo "No Patchfile found..." ;
-  echo "Press c to continue or any other key to abort..."
-  read -n 1 ANSWER
-  echo -e "\nYour answer is $ANSWER"
-  if [ $ANSWER == "c" ] ; then
-    echo "we continue..."
+echo "Checking for patches ..."
+
+HAS_PATCHES=1
+for patch in $PATCHES; do
+
+  patch_url=$STARTDIR"/"$patch
+
+  if [ -f $patch_url ]; then
+    # patch is available
+    echo "Patch $patch_url found... "
   else
-    echo "OK, we abort..."
-    exit 1;
+    HAS_PATCHES=0
+    echo "Patch $patch_url not found..." ;
+
+    echo "Press c to continue or any other key to abort..."
+    read -n 1 ANSWER
+    echo -e "\nYour answer is $ANSWER"
+    if [ $ANSWER == "c" ] ; then
+      echo "we continue..."
+    else
+      echo "OK, we abort..."
+      exit 1;
+    fi
   fi
-fi
+
+  # don't have to check for other patches
+  if [ $HAS_PATCHES -eq 0 ]; then
+    break
+  fi
+done
 
 # define the releases we want to use
 #
@@ -93,30 +115,46 @@ ln -s $SITE_RELEASE_DIR site
 make update
 
 # set some vars
-GLUON_TARGET=ar71xx-tiny
 # ... this is the naming scheme usually used in domain ffka
 #GLUON_RELEASE=$SITE_RELEASE-$(date '+%Y%m%d')
 GLUON_RELEASE=experimental-$(date '+%Y%m%d')
 
 # 1st build w/o the patch, generates the tool chain -> long running time
 #
-make -j$CORES GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
+if [ $NO_BUILD -ne 0 ]; then
+  echo "Build step 1 skipped!"
+else
+  for gluon_target in GLUON_TARGETS; do
+    make -j$CORES GLUON_TARGET=${gluon_target} GLUON_RELEASE=${GLUON_RELEASE}
+    # one $gluon_target is enough
+    break
+  done
+fi
 
 # 2nd step is patching, names defined already above
-echo "Patch URL is... $PATCH_URL"
-if [ -f $PATCH_URL ]
-then
-  # apply patch
-  echo "Patchfile found... $PATCH_URL"
-  patch -p1 < $PATCH_URL
-  # very important, cleanup the build area first!
-  rm -rf lede/tmp
+if [ $HAS_PATCHES -gt 0 ]; then
+
+  for patch in $PATCHES; do
+    patch_url=$STARTDIR"/"$patch
+    # apply patch
+    echo "Applying patchfile $patch_url ..."
+    patch -p1 < $patch_url
+  done
+
   # 2nd build with patches
-  # maybe more detailed
-  #make GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE} V=s
-  make -j$CORES GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
+  if [ $NO_BUILD -ne 0 ]; then
+    echo "Build step 2 skipped"
+  else
+    for gluon_target in $GLUON_TARGETS; do
+      # very important, cleanup the build area first!
+      rm -rf lede/tmp
+      # maybe more detailed
+      #make GLUON_TARGET=${GLUON_target} GLUON_RELEASE=${GLUON_RELEASE} V=s
+      make -j$CORES GLUON_TARGET=${gluon_target} GLUON_RELEASE=${GLUON_RELEASE}
+    done
+  fi
 else
-  echo "No Patchfile found...ignoring patchfile"
+  echo "No Patchfile(s) found...ignoring patchfile"
 fi
 
 STOP_TIME=$(date -Iminutes)
