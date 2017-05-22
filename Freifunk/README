@@ -10,12 +10,16 @@ Directory patches:
 
   This patch works was also tested with v2016.2.4.
 
-- v2016.2.5+v12.patches : previous patch extended by those ones necessary for 
-        TP_Link TL WR841N/ND  V12 routers
+  The patch supports now also TP_Link TL WR841N/ND V12 routers
 
   See also:
    https://github.com/freifunk-gluon/gluon/issues/1103
    https://github.com/freifunk-gluon/gluon/issues/1093
+
+  Tested on the following hardware:
+   TL WR841N/ND V9 8 MByte (tnx to noku67)
+   TL WR841N/ND V11 8 MByte
+   TL WR841N/ND V11 16 MByte (tnx to begin)
 
 - gluon-lede-2017.0.0.patches : patches to be used with
    build_lede_ffnord.sh script
