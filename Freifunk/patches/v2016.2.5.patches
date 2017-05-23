@@ -113,7 +113,7 @@ index 61e2212..fb85e0e 100644
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v12
 +    DEVICE_PROFILE := TLWR8418MB
-+    TPLINK_HWID := 0x084108112
++    TPLINK_HWID := 0x08410812
 +    IMAGES += factory-us.bin factory-eu.bin
 +    IMAGE/factory-us.bin := append-rootfs | mktplinkfw factory -C US
 +    IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
