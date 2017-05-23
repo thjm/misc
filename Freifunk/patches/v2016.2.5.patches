@@ -1,8 +1,8 @@
 diff --git a/targets/ar71xx-generic/profiles.mk b/targets/ar71xx-generic/profiles.mk
-index a0ee43a..23938cb 100644
+index a0ee43a..cb81812 100644
 --- a/targets/ar71xx-generic/profiles.mk
 +++ b/targets/ar71xx-generic/profiles.mk
-@@ -77,11 +77,33 @@ $(eval $(call GluonModel,TLWR841,tl-wr841n-v8,tp-link-tl-wr841n-nd-v8))
+@@ -77,11 +77,36 @@ $(eval $(call GluonModel,TLWR841,tl-wr841n-v8,tp-link-tl-wr841n-nd-v8))
  $(eval $(call GluonModel,TLWR841,tl-wr841n-v9,tp-link-tl-wr841n-nd-v9))
  $(eval $(call GluonModel,TLWR841,tl-wr841n-v10,tp-link-tl-wr841n-nd-v10))
  
@@ -25,13 +25,16 @@ index a0ee43a..23938cb 100644
 +$(eval $(call GluonModel,TLWR8418MB_REGION,tl-wr841n-v12-8mb,tp-link-tl-wr841n-nd-v12-8mb))
 +$(eval $(call GluonProfileFactorySuffix,TLWR8418MB_REGION,-squashfs-factory$(if $(GLUON_REGION),-$(GLUON_REGION)),.bin))
 +
-+# TL-WR841N/ND 16MB v11
-+#$(eval $(call GluonProfile,TLWR84116MB))
++# TL-WR841N/ND 16MB v9, v11
++$(eval $(call GluonProfile,TLWR84116MB))
++$(eval $(call GluonModel,TLWR84116MB,tl-wr841n-v9-16mb,tp-link-tl-wr841n-nd-v9-16mb))
 +#$(eval $(call GluonModel,TLWR84116MB,tl-wr841n-v11-16mb,tp-link-tl-wr841n-nd-v11-16mb))
++#$(eval $(call GluonModel,TLWR84116MB,tl-wr841n-v12-16mb,tp-link-tl-wr841n-nd-v12-16mb))
 +
-+# TL-WR841N/ND 16MB v11 with REGION specifics
++# TL-WR841N/ND 16MB v11, v12 with REGION specifics
 +$(eval $(call GluonProfile,TLWR84116MB_REGION,,TLWR84116MB))
 +$(eval $(call GluonModel,TLWR84116MB_REGION,tl-wr841n-v11-16mb,tp-link-tl-wr841n-nd-v11-16mb))
++$(eval $(call GluonModel,TLWR84116MB_REGION,tl-wr841n-v12-16mb,tp-link-tl-wr841n-nd-v12-16mb))
 +$(eval $(call GluonProfileFactorySuffix,TLWR84116MB_REGION,-squashfs-factory$(if $(GLUON_REGION),-$(GLUON_REGION)),.bin))
 +
  # TL-WR842N/ND v1, v2
@@ -55,10 +58,10 @@ index 2238f1f..7cd0f0c 100755
  		model="TP-Link TL-WR842N/ND"
  		;;
 diff --git a/target/linux/ar71xx/image/Makefile b/target/linux/ar71xx/image/Makefile
-index 61e2212..fb85e0e 100644
+index 61e2212..1f923a3 100644
 --- a/openwrt/target/linux/ar71xx/image/Makefile
 +++ b/openwrt/target/linux/ar71xx/image/Makefile
-@@ -602,6 +602,14 @@ define Device/tl-wr841n-v9
+@@ -602,6 +602,22 @@ define Device/tl-wr841n-v9
      TPLINK_HWID := 0x08410009
  endef
  
@@ -70,10 +73,18 @@ index 61e2212..fb85e0e 100644
 +endef
 +TARGET_DEVICES += tl-wr841n-v9-8mb
 +
++define Device/tl-wr841n-v9-16mb
++    $(Device/tplink-16mlzma)
++    BOARDNAME := TL-WR841N-v9
++    DEVICE_PROFILE := TLWR84116MB
++    TPLINK_HWID := 0x08411609
++endef
++TARGET_DEVICES += tl-wr841n-v9-16mb
++
  define Device/tl-wr841n-v10
      $(Device/tplink-4mlzma)
      BOARDNAME := TL-WR841N-v9
-@@ -619,6 +627,49 @@ define Device/tl-wr841n-v11
+@@ -619,6 +635,60 @@ define Device/tl-wr841n-v11
      IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
  endef
  
@@ -120,10 +131,21 @@ index 61e2212..fb85e0e 100644
 +endef
 +TARGET_DEVICES += tl-wr841n-v12-8mb
 +
++define Device/tl-wr841n-v12-16mb
++    $(Device/tplink-16mlzma)
++    BOARDNAME := TL-WR841N-v12
++    DEVICE_PROFILE := TLWR84116MB
++    TPLINK_HWID := 0x08411612
++    IMAGES += factory-us.bin factory-eu.bin
++    IMAGE/factory-us.bin := append-rootfs | mktplinkfw factory -C US
++    IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
++endef
++TARGET_DEVICES += tl-wr841n-v12-16mb
++
  define Device/tl-wr842n-v2
      $(Device/tplink-8mlzma)
      BOARDNAME := TL-WR842N-v2
-@@ -646,7 +697,7 @@ define Device/tl-wr847n-v8
+@@ -646,7 +716,7 @@ define Device/tl-wr847n-v8
      DEVICE_PROFILE := TLWR841
      TPLINK_HWID := 0x08470008
  endef
