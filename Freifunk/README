@@ -17,7 +17,9 @@ Directory patches:
    https://github.com/freifunk-gluon/gluon/issues/1093
 
   Supported models:
+   TL WR841N/ND V8 4 (standard), 8 & 16 MByte Flash
    TL WR841N/ND V9 4 (standard), 8 & 16 MByte Flash
+   TL WR841N/ND V10 4 (standard), 8 & 16 MByte Flash
    TL WR841N/ND V11 4 (standard), 8 & 16 MByte Flash
    TL WR841N/ND V12 4 (standard), 8 & 16 MByte Flash
 
