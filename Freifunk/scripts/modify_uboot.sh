@@ -39,8 +39,8 @@ dd conv=notrunc if=${UBOOT_IMAGE} of=${MTD0_NEW_IMAGE}
 
 # write the new flash size to a specific place into the resulting image, here 8 MByte
 #printf '\x08' | dd conv=notrunc of=${MTD0_NEW_IMAGE} bs=1 seek=$((0x01fd02))
-# and for 16 MBytes...
-#printf '\x16' | dd conv=notrunc of=${MTD0_NEW_IMAGE} bs=1 seek=$((0x01fd02))
+# and for 16 MBytes, content is interpreted string-like thus 0x16 and not 0x10
+printf '\x16' | dd conv=notrunc of=${MTD0_NEW_IMAGE} bs=1 seek=$((0x01fd02))
 
 # eof
 
