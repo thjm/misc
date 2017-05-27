@@ -45,9 +45,10 @@ if [ "$INPUT_IMAGE" != "" ]; then
   # old mtd0 and mtd4 partitions are already in place, uBoot needs to be replaced
   cat $INPUT_IMAGE $INPUT_IMAGE $INPUT_IMAGE $INPUT_IMAGE > $OUTPUT_IMAGE
 else
-  # 16 MBytes file containing zeros
+  # 16 MBytes file containing zeros (aka. 256 * 64k)
   echo "Creating 16 MByte flash image..."
-  dd if=/dev/zero of=$OUTPUT_IMAGE bs=1M count=16
+  #dd if=/dev/zero of=$OUTPUT_IMAGE bs=1M count=16
+  dd if=/dev/zero ibs=64k count=256 | tr "\000" "\377" > $OUTPUT_IMAGE
   # place old mtd0 at the beginning
   echo "Copying MTD0 partition..."
   dd conv=notrunc if=$MTD0_IMAGE of=$OUTPUT_IMAGE
