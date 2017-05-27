@@ -7,11 +7,12 @@
 #
 
 MTD0_IMAGE="mtd0.bin"
-# see also: 
+# see also:
 #  https://github.com/pepe2k/u-boot_mod
 #  http://projects.dymacz.pl/?dir=u-boot_mod
-UBOOT_IMAGE="u-boot_mod__tp-link_tl-wr841n_v11__20170413__git_master-7e7a2ab4.bin"
+#UBOOT_IMAGE="u-boot_mod__tp-link_tl-wr841n_v11__20170413__git_master-7e7a2ab4.bin"
 #UBOOT_IMAGE="u-boot_mod__tp-link_tl-wr841n_v11__20170425__git_master-aba8e6f8.bin"
+UBOOT_IMAGE="u-boot_mod__tp-link_tl-wr841n_v11__20170510__git_master-0c183583.bin"
 
 # check if everything is in place
 if ! test -f ${MTD0_IMAGE}; then
@@ -37,7 +38,7 @@ dd if=${MTD0_IMAGE} of=${MTD0_NEW_IMAGE}
 dd conv=notrunc if=${UBOOT_IMAGE} of=${MTD0_NEW_IMAGE}
 
 # write the new flash size to a specific place into the resulting image, here 8 MByte
-printf '\x08' | dd conv=notrunc of=${MTD0_NEW_IMAGE} bs=1 seek=$((0x01fd02))
+#printf '\x08' | dd conv=notrunc of=${MTD0_NEW_IMAGE} bs=1 seek=$((0x01fd02))
 # and for 16 MBytes...
 #printf '\x10' | dd conv=notrunc of=${MTD0_NEW_IMAGE} bs=1 seek=$((0x01fd02))
 

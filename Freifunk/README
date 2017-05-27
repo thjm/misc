@@ -28,7 +28,8 @@ Directory patches:
    TL WR841N/ND V11 8 MByte
    TL WR841N/ND V11 16 MByte (tnx to begin)
 
-  The software is at it is and there is no warranty if you brick your router!
+  The software is provided as it is and there is no warranty
+  if you brick your router!
 
 - gluon-lede-2017.0.0.patches : patches to be used with
    build_lede_ffnord.sh script
