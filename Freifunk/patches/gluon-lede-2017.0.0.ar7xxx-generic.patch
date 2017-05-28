@@ -1,14 +1,16 @@
 diff --git a/targets/ar71xx-generic b/targets/ar71xx-generic
-index 2e877cb..ea5b2cd 100644
+index 2e877cb..0f79be4 100644
 --- a/targets/ar71xx-generic
 +++ b/targets/ar71xx-generic
-@@ -104,6 +104,14 @@ factory .img
+@@ -104,6 +104,16 @@ factory .img
  fi
  
  
 +# TP-Link
 +
++device tp-link-tl-wr841n-nd-v8-8m tl-wr841-v8-8m
 +device tp-link-tl-wr841n-nd-v9-8m tl-wr841-v9-8m
++device tp-link-tl-wr841n-nd-v10-8m tl-wr841-v10-8m
 +device tp-link-tl-wr841n-nd-v11-8m tl-wr841-v11-8m
 +factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
 +device tp-link-tl-wr841n-nd-v12-8m tl-wr841-v12-8m
