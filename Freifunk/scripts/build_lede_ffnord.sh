@@ -77,7 +77,10 @@ done
 # For a stable release the SITE_RELEASE must
 # be compatible with the GLUON_GIT_RELEASE!
 #GLUON_GIT_RELEASE="v2016.2.5"
-GLUON_GIT_COMMIT_ID="774d733"
+# commit from 2017-05-04
+#GLUON_GIT_COMMIT_ID="774d733"
+# commit from  2017-05-17
+GLUON_GIT_COMMIT_ID="ad91ab1"
 if [ "$GLUON_GIT_RELEASE" != "" ]; then
   GLUON_GIT_RELEASE_DIR="gluon.$GLUON_GIT_RELEASE"
 else
@@ -96,12 +99,14 @@ fi
 
 START_TIME=$(date -Iminutes)
 
-# checkout (git clone) the gluon
+# checkout (git clone) the gluon (master version)
 git clone https://github.com/freifunk-gluon/gluon.git $GLUON_GIT_RELEASE_DIR
 cd "$GLUON_GIT_RELEASE_DIR"
 if [ "$GLUON_GIT_RELEASE" != "" ]; then
+  # use the tagged version if available
   git checkout -b $GLUON_GIT_RELEASE
 else
+  # otherwise a fixed state in the repository
   git reset --hard $GLUON_GIT_COMMIT_ID
   #git checkout $GLUON_GIT_COMMIT_ID
 fi
@@ -112,6 +117,7 @@ git clone https://github.com/Freifunk-Nord/nord-site $SITE_RELEASE_DIR -b $SITE_
 ln -s $SITE_RELEASE_DIR site
 
 # get all git-submodules, e.g. lede
+# the file 'modules' specifies the commit IDs, branches or releases
 make update
 
 # set some vars
