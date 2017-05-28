@@ -47,8 +47,19 @@ Directory scripts:
    https://github.com/pepe2k/u-boot_mod
    http://projects.dymacz.pl/?dir=u-boot_mod
 
-- build_lede_ffnord.sh : script to build the latest Gluon images 
-       (only ar71xx-tiny model) with proper 8MB patches
+- build_lede_ffnord.sh : script to build the latest gluon images 
+       with proper 8MB and 16 MB patches for TL-WR841N models.
+
+       8MB imagess can be built for ar71xx-tiny and ar71xx-generic, 
+       where 16MB images can be only built for ar71xx-generic. 
+       Supported models:
+        TL WR841N/ND V8 .. TL WR841N/ND V12
+
+       !!! Not yet tested on real hardware !!!
+
+  See also:
+   https://wiki.freifunk.net/Freifunk_Nord/Firmware_selbst_kompilieren
+   https://lede-project.org/docs/guide-developer/quickstart-build-images
 
 =================================================================
 
