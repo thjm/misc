@@ -50,8 +50,13 @@ Directory scripts:
 - build_lede_ffnord.sh : script to build the latest gluon images 
        with proper 8MB and 16 MB patches for TL-WR841N models.
 
-       8MB imagess can be built for ar71xx-tiny and ar71xx-generic, 
-       where 16MB images can be only built for ar71xx-generic. 
+       4MB, 8MB and 16MB images can be built for the targets ar71xx-tiny 
+       and ar71xx-generic, whereas the ar71xx-generic target doesn't
+       support 4MB images.
+
+       If the target ar71xx-tiny is build after the ar71xx-generic target
+       with all patches enabled then the large images will be overwritten!
+
        Supported models:
         TL WR841N/ND V8 .. TL WR841N/ND V12
 

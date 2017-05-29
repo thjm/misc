@@ -34,12 +34,16 @@ cd $WORKINGDIR
 GLUON_TARGETS=""
 # test for existing patch files
 # + user decision to continue without
-# + either the 8mb images are for the tiny or the generic model
+# + 4MB images are only build with ar71xx-tiny target
+# + either the 8MB + 16MB images are for the tiny or the generic target
 PATCHES="gluon-lede-2017.0.0.tl-wr841.patch"
-GLUON_TARGETS="$GLUON_TARGETS ar71xx-generic"
-PATCHES="$PATCHES gluon-lede-2017.0.0.ar7xxx-generic.patch"
 #GLUON_TARGETS="$GLUON_TARGETS ar71xx-tiny"
+# tiny target must be built before generic target, otherwise
+# the large images will be overwritten ...
 #PATCHES="$PATCHES gluon-lede-2017.0.0.ar7xxx-tiny.patch"
+GLUON_TARGETS="$GLUON_TARGETS ar71xx-generic"
+# patch for 8MB and 16MB images only in generic target
+PATCHES="$PATCHES gluon-lede-2017.0.0.ar7xxx-generic.patch"
 
 echo "Checking for patches ..."
 
