@@ -130,8 +130,13 @@ GLUON_RELEASE=experimental-$(date '+%Y%m%d')
 if [ $NO_BUILD -ne 0 ]; then
   echo "Build step 1 skipped!"
 else
-  for gluon_target in GLUON_TARGETS; do
-    make -j$CORES GLUON_TARGET=${gluon_target} GLUON_RELEASE=${GLUON_RELEASE}
+  for gluon_target in $GLUON_TARGETS; do
+    echo "Building for GLUON_TARGET=$gluon_target..."
+    make -j$CORES GLUON_TARGET=$gluon_target GLUON_RELEASE=${GLUON_RELEASE}
+    if [ $? -ne 0 ]; then
+      echo "Build step 1 failed!"
+      exit 1
+    fi
     # one $gluon_target is enough
     break
   done
