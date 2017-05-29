@@ -1,20 +1,30 @@
 diff --git a/targets/ar71xx-tiny b/targets/ar71xx-tiny
-index 5f82acd..6eb4786 100644
+index d50be83..96ab04c 100644
 --- a/targets/ar71xx-tiny
 +++ b/targets/ar71xx-tiny
-@@ -41,11 +41,16 @@ device tp-link-tl-wr841n-nd-v5 tl-wr841-v5
+@@ -39,12 +39,26 @@ device tp-link-tl-wr841n-nd-v3 tl-wr841-v3
+ device tp-link-tl-wr841n-nd-v5 tl-wr841-v5
  device tp-link-tl-wr841n-nd-v7 tl-wr841-v7
  device tp-link-tl-wr841n-nd-v8 tl-wr841-v8
++device tp-link-tl-wr841n-nd-v8-8m tl-wr841-v8-8m
++device tp-link-tl-wr841n-nd-v8-16m tl-wr841-v8-16m
  device tp-link-tl-wr841n-nd-v9 tl-wr841-v9
 +device tp-link-tl-wr841n-nd-v9-8m tl-wr841-v9-8m
++device tp-link-tl-wr841n-nd-v9-16m tl-wr841-v9-16m
  device tp-link-tl-wr841n-nd-v10 tl-wr841-v10
++device tp-link-tl-wr841n-nd-v10-8m tl-wr841-v10-8m
++device tp-link-tl-wr841n-nd-v10-16m tl-wr841-v10-16m
  device tp-link-tl-wr841n-nd-v11 tl-wr841-v11
  factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
 +device tp-link-tl-wr841n-nd-v11-8m tl-wr841-v11-8m
 +factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
++device tp-link-tl-wr841n-nd-v11-16m tl-wr841-v11-16m
++factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
  device tp-link-tl-wr841n-nd-v12 tl-wr841-v12
  factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
 +device tp-link-tl-wr841n-nd-v12-8m tl-wr841-v12-8m
++factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
++device tp-link-tl-wr841n-nd-v12-16m tl-wr841-v12-16m
 +factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
  
  device tp-link-tl-wr843n-nd-v1 tl-wr843nd-v1
