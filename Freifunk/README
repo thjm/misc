@@ -31,8 +31,17 @@ Directory patches:
   The software is provided as it is and there is no warranty
   if you brick your router!
 
-- gluon-lede-2017.0.0.patches : patches to be used with
-   build_lede_ffnord.sh script
+- gluon-lede-2017.0.0.*.patch : patches to be used with
+    build_lede_ffnord.sh script. This will create the large
+    images (i.e. 8MB and 16MB) for TL-WR841N/ND routers.
+
+  - gluon-lede-2017.0.0.tl-wr841.patch
+
+  - gluon-lede-2017.0.0.ar7xxx-tiny.patch - large images for 
+     the ar7xxx-tiny target
+
+  - gluon-lede-2017.0.0.ar7xxx-generic.patch - large images
+     for the ar7xxx-generic target
 
 Directory scripts:
 
@@ -46,6 +55,19 @@ Directory scripts:
   See also:
    https://github.com/pepe2k/u-boot_mod
    http://projects.dymacz.pl/?dir=u-boot_mod
+
+- create_16mb_image.sh : script to create an image file for a 16 MByte
+       flash chip which contains:
+       - the modified uBoot
+       - the 16MB factory image of your favorite FF community
+       - the magic (ID specifier) bytes
+       - the valid ART partition (from the old flash)
+
+       At present this seems to work only using the contents readout from 
+       the old (= de-soldered) 4MB flash chip. The script makes the use of
+       other Linux command line tools as well as the TL866 programming
+       tool (MiniPro) unnecessary. However you need still a flash programmer
+       with appropriate software to read/write the flash chips ;)
 
 - build_lede_ffnord.sh : script to build the latest gluon images 
        with proper 8MB and 16 MB patches for TL-WR841N models.
