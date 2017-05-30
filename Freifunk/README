@@ -69,6 +69,8 @@ Directory scripts:
        tool (MiniPro) unnecessary. However you need still a flash programmer
        with appropriate software to read/write the flash chips ;)
 
+       Note: should be easily adoptable to 8MB flash chips!
+
 - build_lede_ffnord.sh : script to build the latest gluon images 
        with proper 8MB and 16 MB patches for TL-WR841N models.
 
