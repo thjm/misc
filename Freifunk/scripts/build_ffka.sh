@@ -35,7 +35,7 @@ cd $WORKINGDIR
 
 # test for existing patch file
 # + user decision to continue without
-PATCHFILE="v2016.2.5.patches"
+PATCHFILE="v2016.2.6.patches"
 PATCH_URL=$STARTDIR"/"$PATCHFILE
 echo "PATCHURL is $PATCH_URL"
 
@@ -59,9 +59,9 @@ fi
 # define the releases we want to use
 #
 # the SITE_RELEASE must be compatible with the GLUON_GIT_RELEASE!
-GLUON_GIT_RELEASE="v2016.2.5"
+GLUON_GIT_RELEASE="v2016.2.6"
 GLUON_GIT_RELEASE_DIR="gluon.$GLUON_GIT_RELEASE"
-SITE_RELEASE="0.3.3-stable.0"
+SITE_RELEASE="0.4.1-beta.0"
 SITE_RELEASE_DIR="site.$SITE_RELEASE"
 
 # number of cores

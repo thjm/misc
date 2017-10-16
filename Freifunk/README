@@ -2,7 +2,7 @@ Directory patches:
 
 - v2016.2.5.patches : patches for Gluon v2016.2.5 to enable the 
         generation of the 8 MByte and 16 MByte images for the
-        TP_Link TL WR841N/ND V11 router.
+        TP_Link TL WR841N/ND V8 .. V12 routers.
 
   See also: 
    https://forum.freifunk.net/t/flashspeicher-upgraden-exemplarisch-am-tp-link-tl-wr841v9/14792
@@ -30,6 +30,10 @@ Directory patches:
 
   The software is provided as it is and there is no warranty
   if you brick your router!
+
+- v2016.2.6.patches : patches for Gluon v2016.2.6 to enable the 
+        generation of the 8 MByte and 16 MByte images for the
+        TP_Link TL WR841N/ND V8 .. V12 routers.
 
 - gluon-lede-2017.0.0.*.patch : patches to be used with
     build_lede_ffnord.sh script. This will create the large
