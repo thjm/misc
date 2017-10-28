@@ -35,7 +35,8 @@ cd $WORKINGDIR
 
 # test for existing patch file
 # + user decision to continue without
-PATCHFILE="v2016.2.6.patches"
+#PATCHFILE="v2016.2.6.patches"
+PATCHFILE="v2016.2.7.patches"
 PATCH_URL=$STARTDIR"/"$PATCHFILE
 echo "PATCHURL is $PATCH_URL"
 
@@ -59,8 +60,10 @@ fi
 # define the releases we want to use
 #
 # the SITE_RELEASE must be compatible with the GLUON_GIT_RELEASE!
-GLUON_GIT_RELEASE="v2016.2.6"
+#GLUON_GIT_RELEASE="v2016.2.6"
+GLUON_GIT_RELEASE="v2016.2.7"
 GLUON_GIT_RELEASE_DIR="gluon.$GLUON_GIT_RELEASE"
+# not changed for v2016.2.7
 SITE_RELEASE="0.4.1-beta.0"
 SITE_RELEASE_DIR="site.$SITE_RELEASE"
 
@@ -100,8 +103,6 @@ GLUON_RELEASE=$SITE_RELEASE-$(date '+%Y%m%d')
 make GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
 
 # 2nd step is patching, names defined already above
-#PATCHFILE="vvv2016.2.5.patches"
-#PATCH_URL=$STARTDIR"/"$PATCHFILE
 
 echo "Patch URL is... $PATCH_URL"
 if [ -f $PATCH_URL ]
@@ -109,8 +110,7 @@ then
   # apply patch
   echo "Patchfile found... $PATCH_URL"
   patch -p1 < $PATCH_URL
-  # 2nd build with patches
-  # maybe more detailed
+  # 2nd build after patches applied, maybe more detailed
   #make GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE} V=s
   make -j$CORES GLUON_TARGET=${GLUON_TARGET} GLUON_RELEASE=${GLUON_RELEASE}
 else
