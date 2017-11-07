@@ -35,6 +35,12 @@ Directory patches:
         generation of the 8 MByte and 16 MByte images for the
         TP_Link TL WR841N/ND V8 .. V12 routers.
 
+- v2016.2.7.patches  : patches for Gluon v2016.2.7 to enable the
+        generation of the 8 MByte and 16 MByte images for the
+        TP_Link TL WR841N/ND V8 .. V12 routers.
+
+        This patch is identical to the v2016.2.6.patches file.
+
 - gluon-lede-2017.0.0.*.patch : patches to be used with
     build_lede_ffnord.sh script. This will create the large
     images (i.e. 8MB and 16MB) for TL-WR841N/ND routers.
