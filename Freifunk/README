@@ -41,6 +41,13 @@ Directory patches:
 
         This patch is identical to the v2016.2.6.patches file.
 
+- gluon-lede-2017.1.5.*.patch : patches to be used to build
+    gluon v2017.1.5 and gluon v2017.1.7
+    
+    The build scripts require access to the site-ffka git repository.
+    Its URL https://gitlab.ffka.tech/firmware/site is only accessible 
+    via IPv6.(?)
+
 - gluon-lede-2017.0.0.*.patch : patches to be used with
     build_lede_ffnord.sh script. This will create the large
     images (i.e. 8MB and 16MB) for TL-WR841N/ND routers.
