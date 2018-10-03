@@ -62,6 +62,9 @@ Directory patches:
 
 Directory scripts:
 
+- build_ffka_v2017.1.7.sh : script to build gluon v2017.1.7 for
+       TL-WR841N/ND for 8MB/16MB based on the above patches
+
 - build_ffka.sh : wip, script to do all the work of building the
        Gluon images, for domain ffka, with 8MB/16MB patches
 
