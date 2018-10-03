@@ -2,6 +2,11 @@
 #
 # build_ffka_v2017.1.7.sh
 #
+# Script to
+# - retrieve software for gluon (LEDE) build of site ffka
+# - build gluon for site ffka including 8 and 16MB images
+#   for TP-Link WR841N/ND
+#
 
 git clone git://github.com/freifunk-gluon/gluon.git v2017.1.7
 
