@@ -8,10 +8,12 @@
 #   for TP-Link WR841N/ND
 #
 
+export GLUON_CHECKOUT=v2017.1.7
+
 git clone git://github.com/freifunk-gluon/gluon.git v2017.1.7
 
 cd v2017.1.7
-git checkout v2017.1.7
+git checkout $GLUON_CHECKOUT
 
 git clone https://gitlab.ffka.tech/firmware/site site
 
@@ -35,6 +37,7 @@ git clone https://gitlab.ffka.tech/firmware/site site
 
 # v2017.1.5
 #(cd site; git checkout 0d220bf; cd ..)
+# v2017.1.7
 (cd site; git checkout 6fdca83; cd ..)
 make update
 
@@ -43,7 +46,7 @@ rm -vrf images/factory images/sysupgrade
 
 # variables to be set by build.sh etc.
 export COMMIT_DESCRIPTION=0.5.1-stable.0-6fdca83
-export GLUON_CHECKOUT=v2017.1.7
+#export GLUON_CHECKOUT=v2017.1.7 # see above
 
 export GLUON_RELEASE=0.5.1-stable.0-20181001
 export GLUON_BRANCH=experimental
@@ -51,8 +54,9 @@ export GLUON_PRIORITY=1
 
 export GLUON_TARGET=ar71xx-generic
 
-git checkout $GLUON_CHECKOUT
-git pull origin $GLUON_CHECKOUT
+# probably not needed, partly done already above
+#git checkout $GLUON_CHECKOUT
+#git pull origin $GLUON_CHECKOUT
 
 # patching ...
 patch -p1 < ../gluon-lede-2017.1.5.ar7xxx-generic.patch
