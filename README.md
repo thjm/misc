@@ -7,3 +7,6 @@ Scripts, patches, Howtos for my Freifunk actvities ...
 
 See separate README file there.
 
+## References
+
+- https://pre-commit.com/
