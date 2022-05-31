@@ -5,14 +5,14 @@ index a0ee43a..6b8e178 100644
 @@ -77,11 +77,40 @@ $(eval $(call GluonModel,TLWR841,tl-wr841n-v8,tp-link-tl-wr841n-nd-v8))
  $(eval $(call GluonModel,TLWR841,tl-wr841n-v9,tp-link-tl-wr841n-nd-v9))
  $(eval $(call GluonModel,TLWR841,tl-wr841n-v10,tp-link-tl-wr841n-nd-v10))
- 
+
 -# TL-WR841N/ND v11
 +# TL-WR841N/ND v11, v12 with REGION specifics
  $(eval $(call GluonProfile,TLWR841_REGION,,TLWR841))
  $(eval $(call GluonModel,TLWR841_REGION,tl-wr841n-v11,tp-link-tl-wr841n-nd-v11))
 +$(eval $(call GluonModel,TLWR841_REGION,tl-wr841n-v12,tp-link-tl-wr841n-nd-v12))
  $(eval $(call GluonProfileFactorySuffix,TLWR841_REGION,-squashfs-factory$(if $(GLUON_REGION),-$(GLUON_REGION)),.bin))
- 
+
 +# TL-WR841N/ND 8MB v8, v9, v10 # v11, v12
 +$(eval $(call GluonProfile,TLWR8418MB))
 +$(eval $(call GluonModel,TLWR8418MB,tl-wr841n-v8-8mb,tp-link-tl-wr841n-nd-v8-8mb))
@@ -68,7 +68,7 @@ index 61e2212..5a58d2f 100644
 @@ -595,6 +595,22 @@ define Device/tl-wr841n-v8
      TPLINK_HWID := 0x08410008
  endef
- 
+
 +define Device/tl-wr841n-v8-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v8
@@ -91,7 +91,7 @@ index 61e2212..5a58d2f 100644
 @@ -602,6 +618,22 @@ define Device/tl-wr841n-v9
      TPLINK_HWID := 0x08410009
  endef
- 
+
 +define Device/tl-wr841n-v9-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v9
@@ -114,7 +114,7 @@ index 61e2212..5a58d2f 100644
 @@ -609,6 +641,22 @@ define Device/tl-wr841n-v10
      TPLINK_HWID := 0x08410010
  endef
- 
+
 +define Device/tl-wr841n-v10-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v9
@@ -137,7 +137,7 @@ index 61e2212..5a58d2f 100644
 @@ -619,6 +667,60 @@ define Device/tl-wr841n-v11
      IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
  endef
- 
+
 +define Device/tl-wr841n-v11-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v11
@@ -201,6 +201,6 @@ index 61e2212..5a58d2f 100644
  endef
 -TARGET_DEVICES += tl-wr841n-v8 tl-wr841n-v9 tl-wr841n-v10 tl-wr841n-v11 tl-wr842n-v2 tl-wr842n-v3 tl-wr843nd-v1 tl-wr847n-v8
 +TARGET_DEVICES += tl-wr841n-v8 tl-wr841n-v9 tl-wr841n-v10 tl-wr841n-v11 tl-wr841n-v12 tl-wr842n-v2 tl-wr842n-v3 tl-wr843nd-v1 tl-wr847n-v8
- 
+
  define Device/tl-wr941nd-v5
      $(Device/tplink-4mlzma)

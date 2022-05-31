@@ -3,14 +3,14 @@
 @@ -77,12 +77,40 @@
  $(eval $(call GluonModel,TLWR841,tl-wr841n-v9,tp-link-tl-wr841n-nd-v9))
  $(eval $(call GluonModel,TLWR841,tl-wr841n-v10,tp-link-tl-wr841n-nd-v10))
- 
+
 -# TL-WR841N/ND v11, v12
 +# TL-WR841N/ND v11, v12 with REGION specifics
  $(eval $(call GluonProfile,TLWR841_REGION,,TLWR841))
  $(eval $(call GluonModel,TLWR841_REGION,tl-wr841n-v11,tp-link-tl-wr841n-nd-v11))
  $(eval $(call GluonModel,TLWR841_REGION,tl-wr841n-v12,tp-link-tl-wr841n-nd-v12))
  $(eval $(call GluonProfileFactorySuffix,TLWR841_REGION,-squashfs-factory$(if $(GLUON_REGION),-$(GLUON_REGION)),.bin))
- 
+
 +# TL-WR841N/ND 8MB v8, v9, v10 # v11, v12
 +$(eval $(call GluonProfile,TLWR8418MB))
 +$(eval $(call GluonModel,TLWR8418MB,tl-wr841n-v8-8mb,tp-link-tl-wr841n-nd-v8-8mb))
@@ -64,7 +64,7 @@ index 2238f1f..7cd0f0c 100755
 @@ -595,6 +595,22 @@
      TPLINK_HWID := 0x08410008
  endef
- 
+
 +define Device/tl-wr841n-v8-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v8
@@ -87,7 +87,7 @@ index 2238f1f..7cd0f0c 100755
 @@ -602,6 +618,22 @@
      TPLINK_HWID := 0x08410009
  endef
- 
+
 +define Device/tl-wr841n-v9-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v9
@@ -110,7 +110,7 @@ index 2238f1f..7cd0f0c 100755
 @@ -609,6 +641,22 @@
      TPLINK_HWID := 0x08410010
  endef
- 
+
 +define Device/tl-wr841n-v10-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v9
@@ -133,7 +133,7 @@ index 2238f1f..7cd0f0c 100755
 @@ -619,6 +667,28 @@
      IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
  endef
- 
+
 +define Device/tl-wr841n-v11-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v11
@@ -162,7 +162,7 @@ index 2238f1f..7cd0f0c 100755
 @@ -629,6 +699,28 @@
      IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
  endef
- 
+
 +define Device/tl-wr841n-v12-8mb
 +    $(Device/tplink-8mlzma)
 +    BOARDNAME := TL-WR841N-v12

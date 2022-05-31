@@ -1,10 +1,10 @@
 Directory patches:
 
-- v2016.2.5.patches : patches for Gluon v2016.2.5 to enable the 
+- v2016.2.5.patches : patches for Gluon v2016.2.5 to enable the
         generation of the 8 MByte and 16 MByte images for the
         TP_Link TL WR841N/ND V8 .. V12 routers.
 
-  See also: 
+  See also:
    https://forum.freifunk.net/t/flashspeicher-upgraden-exemplarisch-am-tp-link-tl-wr841v9/14792
    https://www.youtube.com/watch?v=l6rw1zo4A2c
 
@@ -31,7 +31,7 @@ Directory patches:
   The software is provided as it is and there is no warranty
   if you brick your router!
 
-- v2016.2.6.patches : patches for Gluon v2016.2.6 to enable the 
+- v2016.2.6.patches : patches for Gluon v2016.2.6 to enable the
         generation of the 8 MByte and 16 MByte images for the
         TP_Link TL WR841N/ND V8 .. V12 routers.
 
@@ -43,9 +43,9 @@ Directory patches:
 
 - gluon-lede-2017.1.5.*.patch : patches to be used to build
     gluon v2017.1.5 and gluon v2017.1.7
-    
+
     The build scripts require access to the site-ffka git repository.
-    Its URL https://gitlab.ffka.tech/firmware/site is only accessible 
+    Its URL https://gitlab.ffka.tech/firmware/site is only accessible
     via IPv6.(?)
 
 - gluon-lede-2017.0.0.*.patch : patches to be used with
@@ -54,7 +54,7 @@ Directory patches:
 
   - gluon-lede-2017.0.0.tl-wr841.patch
 
-  - gluon-lede-2017.0.0.ar7xxx-tiny.patch - large images for 
+  - gluon-lede-2017.0.0.ar7xxx-tiny.patch - large images for
      the ar7xxx-tiny target
 
   - gluon-lede-2017.0.0.ar7xxx-generic.patch - large images
@@ -83,7 +83,7 @@ Directory scripts:
        - the magic (ID specifier) bytes
        - the valid ART partition (from the old flash)
 
-       At present this seems to work only using the contents readout from 
+       At present this seems to work only using the contents readout from
        the old (= de-soldered) 4MB flash chip. The script makes the use of
        other Linux command line tools as well as the TL866 programming
        tool (MiniPro) unnecessary. However you need still a flash programmer
@@ -91,10 +91,10 @@ Directory scripts:
 
        Note: should be easily adoptable to 8MB flash chips!
 
-- build_lede_ffnord.sh : script to build the latest gluon images 
+- build_lede_ffnord.sh : script to build the latest gluon images
        with proper 8MB and 16 MB patches for TL-WR841N models.
 
-       4MB, 8MB and 16MB images can be built for the targets ar71xx-tiny 
+       4MB, 8MB and 16MB images can be built for the targets ar71xx-tiny
        and ar71xx-generic, whereas the ar71xx-generic target doesn't
        support 4MB images.
 
@@ -111,4 +111,3 @@ Directory scripts:
    https://lede-project.org/docs/guide-developer/quickstart-build-images
 
 =================================================================
-

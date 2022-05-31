@@ -14,7 +14,7 @@ MTD0_IMAGE="mtd0.bin"
 MTD4_IMAGE="mtd4.bin"
 
 # new uBoot from pepe2k
-# 
+#
 UBOOT_IMAGE="u-boot_mod__tp-link_tl-wr841n_v11__20170510__git_master-0c183583.bin"
 
 # new Freifunk factory image for the TL-WR841N/ND V11 hardware
@@ -72,4 +72,3 @@ printf '\x16' | dd conv=notrunc of=$OUTPUT_IMAGE bs=1 seek=$((0x01fd02))
 echo "Done!"
 
 # eof
-

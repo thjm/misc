@@ -43,4 +43,3 @@ dd conv=notrunc if=${UBOOT_IMAGE} of=${MTD0_NEW_IMAGE}
 printf '\x16' | dd conv=notrunc of=${MTD0_NEW_IMAGE} bs=1 seek=$((0x01fd02))
 
 # eof
-

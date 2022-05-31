@@ -26,6 +26,5 @@ index d50be83..96ab04c 100644
 +factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
 +device tp-link-tl-wr841n-nd-v12-16m tl-wr841-v12-16m
 +factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
- 
+
  device tp-link-tl-wr843n-nd-v1 tl-wr843nd-v1
- 

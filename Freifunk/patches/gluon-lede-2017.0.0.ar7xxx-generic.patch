@@ -4,8 +4,8 @@ index 2e877cb..85d8200 100644
 +++ b/targets/ar71xx-generic
 @@ -104,6 +104,26 @@ factory .img
  fi
- 
- 
+
+
 +# TP-Link, 8 MByte images
 +
 +device tp-link-tl-wr841n-nd-v8-8m tl-wr841-v8-8m
@@ -27,5 +27,5 @@ index 2e877cb..85d8200 100644
 +factory -squashfs-factory${GLUON_REGION:+-${GLUON_REGION}} .bin
 +
  # Onion
- 
+
  device onion-omega onion-omega

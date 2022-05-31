@@ -5,7 +5,7 @@ index 3ba25d5..448b473 100644
 @@ -160,6 +160,26 @@ device tp-link-wbs510-v1.20 wbs510
  device tp-link-tl-wr710n-v1 tl-wr710n-v1
  device tp-link-tl-wr710n-v2.1 tl-wr710n-v2.1
- 
+
 +# TP-Link, 8 MByte images
 +
 +device tp-link-tl-wr841n-nd-v8-8m tl-wr841-v8-8m

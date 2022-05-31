@@ -22,7 +22,7 @@ index 1c88f43..1f397f4 100644
 @@ -641,6 +641,24 @@ define Device/tl-wr841-v8
      TPLINK_HWID := 0x08410008
  endef
- 
+
 +define Device/tl-wr841-v8-8m
 +    $(Device/tplink-8mlzma)
 +    DEVICE_TITLE := TP-LINK TL-WR841N/ND v8 8 MByte
@@ -47,7 +47,7 @@ index 1c88f43..1f397f4 100644
 @@ -649,6 +667,24 @@ define Device/tl-wr841-v9
      TPLINK_HWID := 0x08410009
  endef
- 
+
 +define Device/tl-wr841-v9-8m
 +    $(Device/tplink-8mlzma)
 +    DEVICE_TITLE := TP-LINK TL-WR841N/ND v9 8 MByte
@@ -72,7 +72,7 @@ index 1c88f43..1f397f4 100644
 @@ -657,22 +693,78 @@ define Device/tl-wr841-v10
      TPLINK_HWID := 0x08410010
  endef
- 
+
 +define Device/tl-wr841-v10-8m
 +    $(Device/tplink-8mlzma)
 +    DEVICE_TITLE := TP-LINK TL-WR841N/ND v10 8 MByte
@@ -133,7 +133,7 @@ index 1c88f43..1f397f4 100644
 +    IMAGE/factory-eu.bin := append-rootfs | mktplinkfw factory -C EU
 +endef
 +TARGET_DEVICES += tl-wr841-v11-16m
- 
+
  define Device/tl-wr841-v12
 -  $(Device/tl-wr841-v11)
 -  DEVICE_TITLE := TP-LINK TL-WR841N/ND v12
@@ -156,6 +156,6 @@ index 1c88f43..1f397f4 100644
 +    TPLINK_HWID := 0x08411612
  endef
 +TARGET_DEVICES += tl-wr841-v12-16m
- 
+
  define Device/tl-wr842n-v1
      $(Device/tplink-8m)
